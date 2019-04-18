@@ -2,5 +2,9 @@
 
 @section('content')
     <h1>Services</h1>
-    <p>This is the services page</p>
+    <ul>
+    @foreach ($services as $service)
+        <li>{{ $service }}</li>
+    @endforeach
+    </ul>
 @endsection
