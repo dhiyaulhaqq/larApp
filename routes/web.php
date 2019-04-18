@@ -17,6 +17,4 @@ Route::get('/about', 'PagesController@about');
 
 Route::get('/services', 'PagesController@services');
 
-Route::get('/hello/{name}', function ($name) {
-    return 'Hello ' . $name;
-});
+Route::resource('posts', 'PostsController');
