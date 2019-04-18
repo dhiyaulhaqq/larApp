@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('pages.about');
 });
+
+Route::get('/hello/{name}', function ($name) {
+    return 'Hello ' . $name;
+});
