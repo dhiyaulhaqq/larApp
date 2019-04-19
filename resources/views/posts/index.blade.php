@@ -10,7 +10,7 @@
         <ul class="list-group mb-3">
             @foreach ($posts as $post)
                 <li class="list-group-item">
-                    <a href="/posts/{{ $post->id }}">
+                    <a href="/posts/{{ $post->id }}" class="text-dark">
                         <h3>{{ $post->title }}</h3>
                     </a>
                     <small>Created at {{ $post->created_at }}</small>
