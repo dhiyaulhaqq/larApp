@@ -9,4 +9,5 @@
     <small>Created at {{ $post->created_at }}</small>
     <h1>{{ $post->title }}</h1>
     <p>{{ $post->body }}</p>
+    <p><a href="/posts/{{ $post->id }}/edit" class="btn btn-dark">Edit</a></p>
 @endsection
