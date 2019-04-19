@@ -7,7 +7,7 @@
 @section('content')
     <h1>Posts</h1>
     @if (count($posts) > 0)
-        <ul class="list-group">
+        <ul class="list-group mb-3">
             @foreach ($posts as $post)
                 <li class="list-group-item">
                     <a href="/posts/{{ $post->id }}">
@@ -17,6 +17,7 @@
                 </li>
             @endforeach
         </ul>
+        {{ $posts->links() }}
     @else
         <p>No posts</p>
     @endif
