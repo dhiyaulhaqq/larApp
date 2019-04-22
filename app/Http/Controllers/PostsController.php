@@ -54,7 +54,7 @@ class PostsController extends Controller
         $post->user_id = auth()->user()->id;
         $post->save();
 
-        return redirect('/posts')->with('success', 'Post Created');
+        return redirect('/home')->with('success', 'Post Created');
     }
 
     /**
@@ -106,7 +106,7 @@ class PostsController extends Controller
         $post->body = $request->body;
         $post->save();
 
-        return redirect('/posts')->with('success', 'Post Updated');
+        return redirect('/home')->with('success', 'Post Updated');
     }
 
     /**
@@ -126,7 +126,7 @@ class PostsController extends Controller
         
         $post->delete();
 
-        return redirect('/posts')->with('success', 'Post Deleted');
+        return redirect('/home')->with('success', 'Post Deleted');
 
     }
 }
