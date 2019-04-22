@@ -25,7 +25,8 @@
         {{ $post->body }}
     </p>
     @auth
-        <div class="d-flex flex-row">
+        @if ( auth()->user()->id === $post->user_id )
+            <div class="d-flex flex-row">
             <a href="/posts/{{ $post->id }}/edit" class="btn btn-dark mr-2">Edit</a>
             <form action="/posts/{{ $post->id }}" method="POST">
                 @method('DELETE')
@@ -33,5 +34,6 @@
                 <button type="submit" class="btn btn-danger">Delete</button>
             </form>
         </div>
+        @endif
     @endauth
 @endsection
