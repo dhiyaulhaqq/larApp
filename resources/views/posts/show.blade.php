@@ -5,16 +5,33 @@
 @endsection
 
 @section('content')
-    <p><a href="/posts" class="btn btn-dark">Go Back</a></p>
-    <small>Created at {{ $post->created_at }}</small>
-    <h1>{{ $post->title }}</h1>
-    <p>{{ $post->body }}</p>
-    <div class="d-flex flex-row">
-        <a href="/posts/{{ $post->id }}/edit" class="btn btn-dark mr-2">Edit</a>
-        <form action="/posts/{{ $post->id }}" method="POST">
-            @method('DELETE')
-            @csrf
-            <button type="submit" class="btn btn-danger">Delete</button>
-        </form>
-    </div>
+    @guest
+        <p>
+            <a href="/posts" class="btn btn-dark">Go Back</a>
+        </p>
+    @else
+        <p>
+            <a href="/home" class="btn btn-dark">Dashboard</a>
+            <a href="/posts" class="btn btn-dark">All Posts</a>
+        </p>
+    @endguest
+    <small>
+        Created at {{ $post->created_at }} by {{ $post->user->name }}
+    </small>
+    <h1>
+        {{ $post->title }}
+    </h1>
+    <p>
+        {{ $post->body }}
+    </p>
+    @auth
+        <div class="d-flex flex-row">
+            <a href="/posts/{{ $post->id }}/edit" class="btn btn-dark mr-2">Edit</a>
+            <form action="/posts/{{ $post->id }}" method="POST">
+                @method('DELETE')
+                @csrf
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+    @endauth
 @endsection
