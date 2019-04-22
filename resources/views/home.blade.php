@@ -35,6 +35,7 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $posts->links() }}
     @else
         <p>No posts</p>
     @endif
