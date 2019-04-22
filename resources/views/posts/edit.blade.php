@@ -18,5 +18,6 @@
             <textarea name="body" id="body" rows="3" placeholder="Body" class="form-control">{{ $post->body }}</textarea>
         </div>
         <button type="submit" class="btn btn-dark">Submit</button>
+        <a class="btn btn-danger" href="{{ route('home') }}">{{ __('Cancel') }}</a>
     </form>
 @endsection
