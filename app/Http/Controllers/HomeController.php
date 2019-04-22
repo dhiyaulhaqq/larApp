@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Post;
 
 class HomeController extends Controller
 {
@@ -25,8 +25,8 @@ class HomeController extends Controller
     public function index()
     {
         $user_id = auth()->user()->id;
-        $user = User::find($user_id);
+        $posts = Post::where('user_id', $user_id)->orderby( 'created_at', 'desc')->paginate(3);
 
-        return view('home')->with('posts', $user->posts);
+        return view('home')->with('posts', $posts);
     }
 }
